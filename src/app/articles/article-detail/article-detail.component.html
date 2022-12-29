@@ -1,0 +1,7 @@
+<h3>{{ article.title }}</h3>
+<em>{{ article.newsSite }} - {{ article.publishedAt | date }} </em>
+<hr />
+<p>
+  {{ article.summary }}
+  <img [src]="article.imageUrl" class="img-fluid" />
+</p>

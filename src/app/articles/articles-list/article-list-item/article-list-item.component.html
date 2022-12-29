@@ -1,0 +1,13 @@
+<div class="row fw-bold border-bottom py-1" *ngIf="isHeader; else item">
+  <div class="col-8">Title</div>
+  <div class="col-2">Source</div>
+  <div class="col-2">Date</div>
+</div>
+
+<ng-template #item>
+  <div class="row py-1 article-list-item">
+    <div class="col-8">{{ article.title }}</div>
+    <div class="col-2">{{ article.newsSite }}</div>
+    <div class="col-2">{{ article.publishedAt | date }}</div>
+  </div>
+</ng-template>
