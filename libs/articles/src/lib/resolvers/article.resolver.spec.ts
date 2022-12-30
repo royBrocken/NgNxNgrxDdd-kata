@@ -1,21 +1,23 @@
 import {expect} from '@jest/globals';
 import { of } from 'rxjs';
+import { getArticle } from '../store/articles.actions';
 import { ArticleResolver } from './article.resolver';
 
 describe('ArticleResolver', () => {
   let fixture: ArticleResolver;
-  let articleService: any;
+  let store: any;
 
   beforeEach(() => {
-    articleService = {
-      getById: jest.fn(() => of(true)),
+    store = {
+      dispatch: jest.fn(() => of(true)),
     };
 
-    fixture = new ArticleResolver(articleService);
+    fixture = new ArticleResolver(store);
   });
+  
   it('should call api to retrieve article by id', () => {
     fixture.resolve({ params: { articleId: 'test123' } } as any);
 
-    expect(articleService.getById).toHaveBeenCalledWith('test123');
+    expect(store.dispatch).toHaveBeenCalledWith(getArticle({ articleId: 'test123' }));
   });
 });

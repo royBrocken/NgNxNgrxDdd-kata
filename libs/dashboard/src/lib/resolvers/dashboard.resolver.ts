@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Dashboard, DashboardService } from '@spacenews-api';
+import { Store } from '@ngrx/store';
+import { getArticlesCount, ArticlesState } from '@spacenews-articles';
 
 @Injectable({
   providedIn: 'root',
 })
-export class DashboardResolver implements Resolve<Observable<Dashboard>> {
-  constructor(private dashboardService: DashboardService) {}
+export class DashboardResolver implements Resolve<void> {
+  constructor(private store: Store<ArticlesState>) {}
 
-  resolve(): Observable<Dashboard> {
-    return this.dashboardService.getDashboard();
+  resolve(): void {
+    this.store.dispatch(getArticlesCount());
   }
 }

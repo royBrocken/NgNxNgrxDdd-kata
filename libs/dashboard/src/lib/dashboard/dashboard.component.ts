@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { select, Store } from '@ngrx/store';
 import { Dashboard } from '@spacenews-api';
+import { Observable } from 'rxjs';
+import { dashboard } from './dashboard.selectors';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent implements OnInit {
-  dashboard!: Dashboard;
+  dashboard$!: Observable<ReturnType<typeof dashboard>>;
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe(({ dashboard }) => {
-      this.dashboard = dashboard;
-    })
+      this.dashboard$ = this.store.pipe(select(dashboard));
   }
 }

@@ -1,21 +1,22 @@
 import { expect } from '@jest/globals';
 import { of } from 'rxjs';
+import { getArticlesCount } from '../../../../articles/src';
 import { DashboardResolver } from './dashboard.resolver';
 
 describe('DashboardResolver', () => {
   let fixture: DashboardResolver;
-  let dashboardService: any;
+  let store: any;
 
   beforeEach(() => {
-    dashboardService = {
-      getDashboard: jest.fn(() => of(true)),
+    store = {
+      dispatch: jest.fn(() => of(true)),
     };
 
-    fixture = new DashboardResolver(dashboardService);
+    fixture = new DashboardResolver(store);
   });
   it('should call api to retrieve dashboard data', () => {
     fixture.resolve();
 
-    expect(dashboardService.getDashboard).toHaveBeenCalledTimes(1);
+    expect(store.dispatch).toHaveBeenCalledWith(getArticlesCount());
   });
 });

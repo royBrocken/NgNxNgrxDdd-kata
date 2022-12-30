@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Article, ArticlesService } from '@spacenews-api';
+import { Store } from '@ngrx/store';
+import { getArticle } from '../store/articles.actions';
+import { ArticlesState } from '../store/articles.reducer';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ArticleResolver implements Resolve<Observable<Article>> {
-  constructor(private articlesService: ArticlesService) {}
+export class ArticleResolver implements Resolve<void> {
+  constructor(private store: Store<ArticlesState>) {}
 
-  resolve({
-    params: { articleId },
-  }: ActivatedRouteSnapshot): Observable<Article> {
-    return this.articlesService.getById(articleId);
+  resolve({ params: { articleId } }: ActivatedRouteSnapshot): void {
+    this.store.dispatch(getArticle({ articleId }));
   }
 }

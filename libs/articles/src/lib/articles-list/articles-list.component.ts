@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Store, select} from '@ngrx/store';
 import { Article } from '@spacenews-api';
+import { Observable } from 'rxjs';
+import { ArticlesState } from '../store/articles.reducer';
+import { articles } from '../store/articles.selectors';
 
 @Component({
   selector: 'app-articles-list',
   templateUrl: './articles-list.component.html',
 })
 export class ArticlesListComponent implements OnInit {
-  articles!: Article[];
+  articles$!: Observable<Article[]>;
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private store: Store<ArticlesState>) {}
 
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe(({ articles }) => {
-      this.articles = articles;
-    });
+      this.articles$ = this.store.pipe(select(articles));
   }
 }

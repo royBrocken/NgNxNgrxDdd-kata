@@ -1,16 +1,18 @@
-<div class="row">
-  <div class="col-12 col-lg-6 card">
-    <div class="card-body">
-      <h5 class="card-title">New space news</h5>
-      <h6 class="card-subtitle mb-2 text-muted">
-        Read up on the latest rockets!
-      </h6>
-      <p class="card-text">
-        There are {{ dashboard.articlesCount }} new articles to read.
-      </p>
-      <a class="btn btn-primary card-link" [routerLink]="['/articles']"
-        >Catch up now</a
-      >
+<ng-container *ngIf="dashboard$ | async as dashboard">
+  <div class="row">
+    <div class="col-12 col-lg-6 card">
+      <div class="card-body">
+        <h5 class="card-title">New space news</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          Read up on the latest rockets!
+        </h6>
+        <p class="card-text">
+          There are {{ dashboard.articlesCount }} new articles to read.
+        </p>
+        <a class="btn btn-primary card-link" [routerLink]="['/articles']"
+          >Catch up now</a
+        >
+      </div>
     </div>
   </div>
-</div>
+</ng-container>
