@@ -9,11 +9,13 @@
       <input
         id="title"
         formControlName="title"
+        required="true"
+        [ngClass]="{ 'is-invalid': controlHasError('title', 'required') }"
         class="col-12 col-lg-8 form-control"
-        placeholder="Article title"
+        placeholder="..."
         aria-label="Article title"
       />
-      <label for="title">Article title</label>
+      <label for="title">Article title <font class="text-danger">*</font></label>
     </div>
     <div class="invalid-feedback">Please enter a title.</div>
   </div>
@@ -31,7 +33,7 @@
         placeholder="Article publisher"
         aria-label="Article publisher"
       />
-      <label for="source">Article publisher</label>
+      <label for="source">Article publisher <font class="text-danger">*</font></label>
     </div>
     <div class="invalid-feedback">Please enter a publisher.</div>
   </div>
@@ -44,12 +46,13 @@
       <textarea
         id="summary"
         formControlName="summary"
+        [ngClass]="{ 'is-invalid': controlHasError('summary', 'required') }"
         class="col-12 col-lg-8 form-control"
         style="min-height: 200px"
         placeholder="Article summary"
         aria-label="Article summary"
       ></textarea>
-      <label for="summary">Article summary</label>
+      <label for="summary">Article summary <font class="text-danger">*</font></label>
     </div>
     <div class="invalid-feedback">Please enter a summary.</div>
   </div>

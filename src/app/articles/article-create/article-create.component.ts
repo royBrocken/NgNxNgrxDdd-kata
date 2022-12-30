@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-article-create',
@@ -8,6 +9,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class ArticleCreateComponent implements OnInit {
   articleForm!: FormGroup;
 
+  constructor(private router: Router) { }
+  
   ngOnInit(): void {
     this.articleForm = new FormGroup({
       title: new FormControl<string | null>(null, Validators.required),
@@ -28,6 +31,7 @@ export class ArticleCreateComponent implements OnInit {
   createArticle(): void {
     if (this.articleForm.invalid) return this.articleForm.markAllAsTouched(); //>>>
 
-    console.log(this.articleForm.value)
+    console.log('article created (not really - api doesn\'t support create)', this.articleForm.value)
+    this.router.navigate(['/articles']);
   }
 }
