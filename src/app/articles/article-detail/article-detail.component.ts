@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Article } from 'src/app/models/Article';
 
@@ -7,7 +7,7 @@ import { Article } from 'src/app/models/Article';
   templateUrl: './article-detail.component.html',
   styleUrls: ['./article-detail.component.sass']
 })
-export class ArticleDetailComponent {
+export class ArticleDetailComponent implements OnInit {
   article!: Article;
 
   constructor(private activatedRoute: ActivatedRoute) {}
