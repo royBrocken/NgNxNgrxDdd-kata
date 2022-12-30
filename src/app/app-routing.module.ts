@@ -6,11 +6,15 @@ import { ArticleDetailComponent } from './articles/article-detail/article-detail
 import { ArticlesListComponent } from './articles/articles-list/articles-list.component';
 import { ArticlesResolver } from './resolvers/articles.resolver';
 import { ArticleResolver } from './resolvers/article.resolver';
+import { DashboardResolver } from './resolvers/dashboard.resolver';
 
 const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
+    resolve: {
+      dashboard: DashboardResolver,
+    }
   },
   {
     path: 'articles',

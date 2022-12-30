@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import {
-  Router, Resolve,
-  RouterStateSnapshot,
-  ActivatedRouteSnapshot
-} from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Resolve } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Dashboard } from '../models/Dashboard';
+import { DashboardService } from '../services/dashboard.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class DashboardResolver implements Resolve<boolean> {
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    return of(true);
+export class DashboardResolver implements Resolve<Observable<Dashboard>> {
+  constructor(private dashboardService: DashboardService) {}
+
+  resolve(): Observable<Dashboard> {
+    return this.dashboardService.getDashboard();
   }
 }

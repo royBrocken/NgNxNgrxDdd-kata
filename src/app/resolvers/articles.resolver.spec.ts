@@ -1,16 +1,21 @@
-import { TestBed } from '@angular/core/testing';
-
+import { expect } from '@jest/globals';
+import { of } from 'rxjs';
 import { ArticlesResolver } from './articles.resolver';
 
 describe('ArticlesResolver', () => {
-  let resolver: ArticlesResolver;
+  let fixture: ArticlesResolver;
+  let articleService: any;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    resolver = TestBed.inject(ArticlesResolver);
-  });
+    articleService = {
+      fetch: jest.fn(() => of(true)),
+    };
 
-  it('should be created', () => {
-    expect(resolver).toBeTruthy();
+    fixture = new ArticlesResolver(articleService);
+  });
+  it('should call api to retrieve article by id', () => {
+    fixture.resolve();
+
+    expect(articleService.fetch).toHaveBeenCalledTimes(1);
   });
 });

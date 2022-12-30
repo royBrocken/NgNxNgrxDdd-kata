@@ -5,12 +5,16 @@
 
 # Steps to develop
 ## 1. Ng v15 standard app
-- Base feature: list/detail-view/create-update
-- Dashboard component (to share data with base feature in Step 2)
-- Routing, resolvers, http service, reactive form + validation
-- Bootstrap responsive and sass color overrides
-- Root menu ui
-- Jest tests for services and resolvers
+- Components
+    - Base feature: list/detail-view/create-update
+    - App level menu component
+    - Dashboard component (to share data with base feature in Step 2)
+- Wiring
+    - Routing, resolvers, http service, reactive form + validation
+    - Bootstrap responsive and sass color overrides
+- Development tools
+    - Jest tests for services and resolvers
+    - Eslint
 
 ## 2. Nx and ngrx
 - Move feature to nx lib
