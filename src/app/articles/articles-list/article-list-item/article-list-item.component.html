@@ -1,13 +1,46 @@
-<div class="row fw-bold border-bottom py-1" *ngIf="isHeader; else item">
-  <div class="col-8">Title</div>
-  <div class="col-2">Source</div>
-  <div class="col-2">Date</div>
-</div>
+<section class="d-none d-lg-block" *ngIf="isHeader; else item">
+  <div class="row fw-bold border-bottom py-1">
+    <div class="col-7">Title</div>
+    <div class="col-2">Source</div>
+    <div class="col-2">Date</div>
+  </div>
+</section>
 
 <ng-template #item>
-  <div class="row py-1 article-list-item">
-    <div class="col-8">{{ article.title }}</div>
-    <div class="col-2">{{ article.newsSite }}</div>
-    <div class="col-2">{{ article.publishedAt | date }}</div>
-  </div>
+  <section class="d-none d-lg-block">
+    <div class="row py-1 article-list-item">
+      <div class="col-7">{{ article.title }}</div>
+      <div class="col-2">{{ article.newsSite }}</div>
+      <div class="col-2">{{ article.publishedAt | date }}</div>
+      <div class="col-1">
+        <a
+          class="btn btn-outline-primary"
+          [routerLink]="['/articles', article.id]"
+        >
+          View
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="d-block d-lg-none">
+    <div class="card m-2 article-list-item">
+      <section class="card-body">
+        <div class="row">
+          <div class="col-10">
+            <div class="fw-bold">{{ article.title }}</div>
+            <div>{{ article.newsSite }} - {{ article.publishedAt | date }}</div>
+          </div>
+          <div class="col-2 d-flex">
+            <a
+              class="btn btn-outline-primary align-self-center"
+              [routerLink]="['/articles', article.id]"
+            >
+              View
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
 </ng-template>

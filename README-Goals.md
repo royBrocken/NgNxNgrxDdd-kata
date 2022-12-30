@@ -6,6 +6,7 @@
 # Steps to develop
 ## 1. Ng v15 standard app
 - Base feature: list/detail-view/create-update
+- Dashboard component (to share data with base feature in Step 2)
 - Routing, resolvers, http service, reactive form + validation
 - Bootstrap responsive and sass color overrides
 - Root menu ui
