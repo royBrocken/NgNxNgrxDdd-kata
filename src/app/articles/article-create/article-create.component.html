@@ -1,1 +1,61 @@
-<p>article-create works!</p>
+<h3>Create an article</h3>
+
+<div [formGroup]="articleForm" class="col-12 col-lg-8">
+  <div class="has-validation">
+    <div
+      class="row mt-3 form-floating"
+      [ngClass]="{ 'is-invalid': controlHasError('title', 'required') }"
+    >
+      <input
+        id="title"
+        formControlName="title"
+        class="col-12 col-lg-8 form-control"
+        placeholder="Article title"
+        aria-label="Article title"
+      />
+      <label for="title">Article title</label>
+    </div>
+    <div class="invalid-feedback">Please enter a title.</div>
+  </div>
+
+  <div class="has-validation">
+    <div
+      class="row mt-3 form-floating"
+      [ngClass]="{ 'is-invalid': controlHasError('source', 'required') }"
+    >
+      <input
+        id="source"
+        formControlName="source"
+        [ngClass]="{ 'is-invalid': controlHasError('source', 'required') }"
+        class="col-12 col-lg-8 form-control"
+        placeholder="Article publisher"
+        aria-label="Article publisher"
+      />
+      <label for="source">Article publisher</label>
+    </div>
+    <div class="invalid-feedback">Please enter a publisher.</div>
+  </div>
+
+  <div class="has-validation">
+    <div
+      class="row mt-3 form-floating"
+      [ngClass]="{ 'is-invalid': controlHasError('summary', 'required') }"
+    >
+      <textarea
+        id="summary"
+        formControlName="summary"
+        class="col-12 col-lg-8 form-control"
+        style="min-height: 200px"
+        placeholder="Article summary"
+        aria-label="Article summary"
+      ></textarea>
+      <label for="summary">Article summary</label>
+    </div>
+    <div class="invalid-feedback">Please enter a summary.</div>
+  </div>
+
+  <div class="d-flex justify-content-end mt-3">
+    <a [routerLink]="['/articles']" class="btn btn-outline-secondary">Cancel</a>
+    <a (click)="createArticle()" class="btn btn-primary ms-2">Create article</a>
+  </div>
+</div>
