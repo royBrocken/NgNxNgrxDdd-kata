@@ -17,9 +17,10 @@
     - Eslint
 
 ## 2. Nx and ngrx
-- Move feature to nx lib
+- Move feature and dashboard to /libs
+- Create an /api lib and move services and models
 - Add ngrx with app store and store for feature
-- Share store data between feature store and app component
+- Share store data (articlesCount) between domain (feature) store and dashboard
 
 ## 3. DDD and Onion
 - Create DDD elements: Entity, Dtos, Mappers, Usecases
