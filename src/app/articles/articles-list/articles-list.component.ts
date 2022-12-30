@@ -5,7 +5,6 @@ import { Article } from 'src/app/models/Article';
 @Component({
   selector: 'app-articles-list',
   templateUrl: './articles-list.component.html',
-  styleUrls: ['./articles-list.component.sass'],
 })
 export class ArticlesListComponent implements OnInit {
   articles!: Article[];

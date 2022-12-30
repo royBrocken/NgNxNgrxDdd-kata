@@ -5,7 +5,6 @@ import { Dashboard } from '../models/Dashboard';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.sass'],
 })
 export class DashboardComponent implements OnInit {
   dashboard!: Dashboard;
