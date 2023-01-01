@@ -2,7 +2,7 @@ import { ActionReducer, createReducer, on } from '@ngrx/store';
 import { Article } from '@spacenews-domains/article';
 import { fetchArticles_Success, getArticlesCount_Success, getArticle_Success } from './articles.actions';
 
-export const articlesFeatureKey = 'articles';
+export const articlesFeatureKey = 'spacenews-articles';
 
 export interface ArticlesState {
   articles?: Article[];

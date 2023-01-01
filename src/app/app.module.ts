@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { routes } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { routes } from './app-routing.module';
 
-import { ApiModule } from '@spacenews-api';
+import { EffectsModule } from '@ngrx/effects';
 import { MenuModule } from '@spacenews-menu';
 import { AppComponent } from './app.component';
-import { EffectsModule, EffectsRootModule } from '@ngrx/effects';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,8 +36,8 @@ import { EffectsModule, EffectsRootModule } from '@ngrx/effects';
       },
     }),
     RouterModule.forRoot(routes),
-    ApiModule,
     MenuModule,
+    HttpClientModule,
   ],
   bootstrap: [AppComponent],
 })

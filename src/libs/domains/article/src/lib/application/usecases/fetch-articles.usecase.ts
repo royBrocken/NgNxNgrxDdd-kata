@@ -4,7 +4,7 @@ import { Article } from '../../domain/Article';
 import { ArticlesService } from '../../infrastructure/articles.service';
 
 @Injectable({ providedIn: 'root'})
-export class fetchArticlesUsecase {
+export class FetchArticlesUsecase {
   constructor(private articlesService: ArticlesService) {}
 
   execute(): Observable<Article[]> {

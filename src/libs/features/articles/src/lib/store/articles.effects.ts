@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import {
-  fetchArticlesUsecase,
-  getArticleByIdUsecase,
-  getArticlesCountUsecase,
+  FetchArticlesUsecase,
+  GetArticleByIdUsecase,
+  GetArticlesCountUsecase,
 } from 'libs/domains/article/src';
 import { switchMap } from 'rxjs';
 import {
@@ -60,8 +60,8 @@ export class ArticlesEffects {
 
   constructor(
     private actions$: Actions,
-    private fetchArticlesUsecase: fetchArticlesUsecase,
-    private getArticleUsecase: getArticleByIdUsecase,
-    private getArticlesCountUsecase: getArticlesCountUsecase
+    private fetchArticlesUsecase: FetchArticlesUsecase,
+    private getArticleUsecase: GetArticleByIdUsecase,
+    private getArticlesCountUsecase: GetArticlesCountUsecase
   ) {}
 }

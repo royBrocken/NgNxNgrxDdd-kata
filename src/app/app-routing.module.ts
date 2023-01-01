@@ -1,14 +1,18 @@
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('@spacenews-dashboard').then((m) => m.DashboardModule),
+      import('@spacenews-features/dashboard').then(
+        (m) => m.FeaturesDashboardModule
+      ),
   },
   {
     path: 'articles',
     loadChildren: () =>
-      import('@spacenews-features/articles').then((m) => m.FeaturesArticlesModule),
+      import('@spacenews-features/articles').then(
+        (m) => m.FeaturesArticlesModule
+      ),
   },
 ];
