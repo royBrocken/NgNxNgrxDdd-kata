@@ -9,6 +9,6 @@ export const routes: Routes = [
   {
     path: 'articles',
     loadChildren: () =>
-      import('@spacenews-articles').then((m) => m.ArticlesModule),
+      import('@spacenews-features/articles').then((m) => m.FeaturesArticlesModule),
   },
 ];

@@ -1,8 +1,8 @@
 {
-  "name": "dashboard",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "src-libs-domains-article",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/dashboard/src",
+  "sourceRoot": "src/libs/domains/article/src",
   "prefix": "app",
   "targets": {
     "lint": {
@@ -10,8 +10,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "libs/dashboard/**/*.ts",
-          "libs/dashboard/**/*.html"
+          "src/libs/domains/article/**/*.ts",
+          "src/libs/domains/article/**/*.html"
         ]
       }
     }

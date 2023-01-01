@@ -13,8 +13,9 @@
     "baseUrl": "./src",
     "paths": {
       "@spacenews-api": ["libs/api/src/index.ts"],
-      "@spacenews-articles": ["libs/articles/src/index.ts"],
       "@spacenews-dashboard": ["libs/dashboard/src/index.ts"],
+      "@spacenews-domains/article": ["libs/domains/article/src/index.ts"],
+      "@spacenews-features/articles": ["libs/features/articles/src/index.ts"],
       "@spacenews-menu": ["libs/menu/src/index.ts"]
     }
   }
