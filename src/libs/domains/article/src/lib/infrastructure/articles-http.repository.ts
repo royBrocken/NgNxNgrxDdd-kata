@@ -2,9 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Article } from '../domain/Article';
+import { ArticlesRepository } from './articles.repository';
 
 @Injectable({ providedIn: 'root' })
-export class ArticlesService {
+export class ArticlesHttpRepository extends ArticlesRepository {
   readonly BASE_URL = 'https://api.spaceflightnewsapi.net/v3/';
 
   readonly GET_ARTICLES_COUNT = `${this.BASE_URL}articles/count`;
@@ -12,7 +13,9 @@ export class ArticlesService {
   readonly GET_ARTICLE_BY_ID = (articleId: string): string =>
     `${this.BASE_URL}articles/${articleId}`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    super()
+  }
 
   fetch(): Observable<Article[]> {
     return this.http.get<Article[]>(this.FETCH_ARTICLES);

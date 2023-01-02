@@ -31,6 +31,7 @@
 - Create DDD elements: Entity, Dtos, Mappers, Usecases
 - Create a context from feature business rules
 - Move Domain and UI into separate nx libs
+- Repository pattern - use to store 'favorite articles' in localstorage
 
 ## 4. Dressings
 
@@ -47,3 +48,5 @@
   - in app root store
   - in each domain with public api
   - in feature/ui level store
+- To Test this:  increment 'articles count' when articles/createArticle fires, and catch new count in Dashboard
+  - 

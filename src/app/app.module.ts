@@ -9,6 +9,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { MenuModule } from '@spacenews-menu';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DomainsArticleModule } from '@spacenews-domains/article';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,6 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule.forRoot(routes),
     MenuModule,
     HttpClientModule,
+
+    DomainsArticleModule,
   ],
   bootstrap: [AppComponent],
 })

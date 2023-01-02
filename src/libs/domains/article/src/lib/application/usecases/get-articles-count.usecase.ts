@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ArticlesService } from '../../infrastructure/articles.service';
+import { ArticlesRepository } from '../../infrastructure/articles.repository';
 
 @Injectable({ providedIn: 'root'})
 export class GetArticlesCountUsecase {
-  constructor(private articlesService: ArticlesService) {}
+  constructor(private articlesRepository: ArticlesRepository) {}
 
   execute(): Observable<number> {
-    return this.articlesService.getArticlesCount();
+    return this.articlesRepository.getArticlesCount();
   }
 }
