@@ -1,12 +1,12 @@
-<ng-container *ngIf="vm$ | ngrxPush as vm">
-    <h3>{{ vm.selectedArticle?.title }}</h3>
-    <em
-      >{{ vm.selectedArticle?.publisher }} -
-      {{ vm.selectedArticle?.publishedAt | date }}
-    </em>
-    <hr />
-    <p>
-      {{ vm.selectedArticle?.summary }}
-      <img [src]="vm.selectedArticle?.imageUrl" class="img-fluid" />
-    </p>
-  </ng-container>
+<ng-container *ngrxLet="vm$; let vm">
+  <h3>{{ vm.selectedArticle?.title }}</h3>
+  <em
+    >{{ vm.selectedArticle?.publisher }} -
+    {{ vm.selectedArticle?.publishedAt | date }}
+  </em>
+  <hr />
+  <p>
+    {{ vm.selectedArticle?.summary }}
+    <img [src]="vm.selectedArticle?.imageUrl" class="img-fluid" />
+  </p>
+</ng-container>
