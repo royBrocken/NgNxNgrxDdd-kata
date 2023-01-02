@@ -1,6 +1,7 @@
 export * from './lib/domains-article.module';
 
 export { Article } from './lib/domain/Article';
+export { ArticleEntity } from './lib/domain/ArticleEntity';
 
 // Usecases
 export * from './lib/application/usecases/fetch-articles.usecase';

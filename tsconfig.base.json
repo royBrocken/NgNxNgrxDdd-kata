@@ -12,6 +12,7 @@
     "lib": ["ES2022", "dom"],
     "baseUrl": "./src",
     "paths": {
+      "@spacenews-domains/shared": ["libs/domains/shared/src/index.ts"],
       "@spacenews-domains/article": ["libs/domains/article/src/index.ts"],
       "@spacenews-domains/dashboard": ["libs/domains/dashboard/src/index.ts"],
       "@spacenews-features/articles": ["libs/features/articles/src/index.ts"],

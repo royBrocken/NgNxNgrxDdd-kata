@@ -1,19 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { Article } from '@spacenews-domains/article';
 import { Observable } from 'rxjs';
-import { selectedArticle } from '../store/articles.selectors';
+import { clearSelectedArticle } from '../store/articles.actions';
+import { articleDetail } from '../store/articles.selectors';
 
 @Component({
   selector: 'app-article-detail',
   templateUrl: './article-detail.component.html',
 })
-export class ArticleDetailComponent implements OnInit {
-  article$!: Observable<Article | undefined>;
+export class ArticleDetailComponent implements OnInit, OnDestroy {
+  vm$!: Observable<ReturnType<typeof articleDetail>>;
 
   constructor(private store: Store) {}
 
   ngOnInit(): void {
-    this.article$ = this.store.pipe(select(selectedArticle));
+    this.vm$ = this.store.pipe(select(articleDetail));
+  }
+
+  ngOnDestroy(): void {
+    this.store.dispatch(clearSelectedArticle());
   }
 }

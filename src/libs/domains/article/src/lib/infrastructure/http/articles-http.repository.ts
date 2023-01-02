@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Article } from '../domain/Article';
-import { ArticlesRepository } from './articles.repository';
+import { Article } from '../../domain/Article';
+import { ArticlesRepository } from '../articles.repository';
+import { HttpFetchResponse, HttpGetByIdResponse } from './dtos/responses.dto';
 
 @Injectable({ providedIn: 'root' })
 export class ArticlesHttpRepository extends ArticlesRepository {
@@ -17,12 +18,12 @@ export class ArticlesHttpRepository extends ArticlesRepository {
     super()
   }
 
-  fetch(): Observable<Article[]> {
-    return this.http.get<Article[]>(this.FETCH_ARTICLES);
+  fetch(): Observable<HttpFetchResponse> {
+    return this.http.get<HttpFetchResponse>(this.FETCH_ARTICLES);
   }
 
-  getById(articleId: string): Observable<Article> {
-    return this.http.get<Article>(this.GET_ARTICLE_BY_ID(articleId));
+  getById(articleId: string): Observable<HttpGetByIdResponse> {
+    return this.http.get<HttpGetByIdResponse>(this.GET_ARTICLE_BY_ID(articleId));
   }
 
   getArticlesCount(): Observable<number> {

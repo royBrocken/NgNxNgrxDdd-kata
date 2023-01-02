@@ -1,6 +1,6 @@
 import { ActionReducer, createReducer, on } from '@ngrx/store';
 import { Article } from '@spacenews-domains/article';
-import { fetchArticles_Success, getArticlesCount_Success, getArticle_Success } from './articles.actions';
+import { clearSelectedArticle, fetchArticles_Success, getArticlesCount_Success, getArticle_Success } from './articles.actions';
 
 export const articlesFeatureKey = 'spacenews-articles';
 
@@ -42,6 +42,15 @@ export const articlesReducer: ActionReducer<ArticlesState> = createReducer(
       return {
         ...state,
         articlesCount,
+      };
+    }
+  ),
+  on(
+    clearSelectedArticle,
+    (state: ArticlesState): ArticlesState => {
+      return {
+        ...state,
+        selectedArticle: undefined,
       };
     }
   )

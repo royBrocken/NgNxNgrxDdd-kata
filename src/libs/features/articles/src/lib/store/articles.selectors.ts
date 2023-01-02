@@ -1,19 +1,18 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { ArticleEntity } from '@spacenews-domains/article';
 import { articlesFeatureKey, ArticlesState } from './articles.reducer';
 
 const articlesState = createFeatureSelector<ArticlesState>(articlesFeatureKey);
 
-export const articles = createSelector(
-  articlesState,
-  ({ articles }) => articles ?? []
-);
+export const articleList = createSelector(articlesState, ({ articles }) => ({
+  articles: (articles ?? []).map((article) => new ArticleEntity(article)),
+}));
 
-export const selectedArticle = createSelector(
+export const articleDetail = createSelector(
   articlesState,
-  ({ selectedArticle }) => selectedArticle
-);
-
-export const articlesCount = createSelector(
-  articlesState,
-  ({ articlesCount }) => articlesCount ?? 0
+  ({ selectedArticle }) => ({
+    selectedArticle: selectedArticle
+      ? new ArticleEntity(selectedArticle)
+      : undefined,
+  })
 );

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ArticlesHttpRepository } from './infrastructure/articles-http.repository';
+import { ArticlesHttpRepository } from './infrastructure/http/articles-http.repository';
 import { ArticlesRepository } from './infrastructure/articles.repository';
 
 @NgModule({

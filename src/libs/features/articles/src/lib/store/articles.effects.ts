@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import {
+  Article,
   FetchArticlesUsecase,
   GetArticleByIdUsecase,
   GetArticlesCountUsecase,
@@ -21,9 +22,14 @@ export class ArticlesEffects {
     this.actions$.pipe(
       ofType(fetchArticles),
       switchMap(() =>
-        this.fetchArticlesUsecase
-          .execute()
-          .pipe(switchMap((articles) => [fetchArticles_Success({ articles })]))
+        this.fetchArticlesUsecase.execute().pipe(
+          switchMap((articleEntities) => {
+            const articles: Article[] = articleEntities.map((article) =>
+              article.toModel()
+            );
+            return [fetchArticles_Success({ articles })];
+          })
+        )
       )
     )
   );
@@ -32,13 +38,12 @@ export class ArticlesEffects {
     this.actions$.pipe(
       ofType(getArticle),
       switchMap(({ articleId }) =>
-        this.getArticleUsecase
-          .execute(articleId)
-          .pipe(
-            switchMap((selectedArticle) => [
-              getArticle_Success({ selectedArticle }),
-            ])
-          )
+        this.getArticleUsecase.execute(articleId).pipe(
+          switchMap((article) => {
+            const selectedArticle: Article = article.toModel();
+            return [getArticle_Success({ selectedArticle })];
+          })
+        )
       )
     )
   );

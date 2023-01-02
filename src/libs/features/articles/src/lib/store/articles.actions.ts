@@ -28,3 +28,7 @@ export const getArticlesCount_Success = createAction(
     '[@cf/Articles] getArticlesCount_Success',
     props<{ articlesCount: number}>()
 );
+
+export const clearSelectedArticle = createAction(
+    '[@cf/Articles] clearSelectedArticle',
+);

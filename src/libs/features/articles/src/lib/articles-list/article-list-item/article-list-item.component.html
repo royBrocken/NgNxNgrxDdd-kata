@@ -10,7 +10,7 @@
   <section class="d-none d-lg-block">
     <div class="row py-2 article-list-item align-items-center">
       <div class="col-7">{{ article.title }}</div>
-      <div class="col-2">{{ article.newsSite }}</div>
+      <div class="col-2">{{ article.publisher }}</div>
       <div class="col-2">{{ article.publishedAt | date }}</div>
       <div class="col-1">
         <a
@@ -29,7 +29,7 @@
         <div class="row">
           <div class="col-10">
             <div class="fw-bold">{{ article.title }}</div>
-            <div>{{ article.newsSite }} - {{ article.publishedAt | date }}</div>
+            <div>{{ article.publisher }} - {{ article.publishedAt | date }}</div>
           </div>
           <div class="col-2 d-flex">
             <a

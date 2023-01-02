@@ -11,6 +11,7 @@ import { ArticlesListComponent } from './articles-list/articles-list.component';
 import { ArticleListItemComponent } from './articles-list/article-list-item/article-list-item.component';
 import { articlesFeatureKey, articlesReducer } from './store/articles.reducer';
 import { ArticlesEffects } from './store/articles.effects';
+import { LetModule, PushModule } from '@ngrx/component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,8 @@ import { ArticlesEffects } from './store/articles.effects';
     RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,
+    LetModule,
+    PushModule,
     StoreModule.forFeature(articlesFeatureKey, articlesReducer),
     EffectsModule.forFeature([ArticlesEffects]),
   ],
